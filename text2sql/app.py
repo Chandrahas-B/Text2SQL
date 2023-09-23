@@ -32,4 +32,4 @@ class Text2Sql:
         return generated_query
 
 
-llm = Text2Sql('fine-tuned-FLAN-T5')    
+model = Text2Sql('fine-tuned-FLAN-T5')    
