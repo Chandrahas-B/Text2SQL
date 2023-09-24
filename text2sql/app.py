@@ -3,7 +3,7 @@ from typing import List
 from transformers import AutoModelForSeq2SeqLM
 from transformers import AutoTokenizer
 import torch
-from .utils import logger
+from .utils import logger, postprocess
 
 
 class Text2Sql:
@@ -29,6 +29,9 @@ class Text2Sql:
         
         output = self.model.generate(input_ids, max_length = self.max_token_limit, do_sample=True)
         generated_query = self.tokenizer.decode(output[0], skip_special_tokens= True)
+        
+        generated_query = postprocess(generated_query)
+        
         return generated_query
 
 

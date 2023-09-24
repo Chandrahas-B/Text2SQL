@@ -1,4 +1,4 @@
-from text2sql.app import model
+from text2sql import model
 import gradio as gr
 
 def main(input_prompt, history):
@@ -10,4 +10,4 @@ def main(input_prompt, history):
 
 if __name__ == '__main__':
     demo = gr.ChatInterface(fn= main, title= "Text 2 SQL", chatbot=gr.Chatbot(height= 500))
-    demo.launch(server_name="0.0.0.0")
+    demo.launch(server_name="0.0.0.0", server_port= 7861)
